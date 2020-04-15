@@ -10,7 +10,7 @@ CompanyNames = []
 CompanyURL = []
 # this is first page
 # http://business-uae.com/eng/biz/jewellers-4800?p=1
-for i in range(1,87):
+for i in range(60,87     ):
     time.sleep(15)
     root = 'http://business-uae.com/eng/biz/jewellers-4800?p=' +str(i)
     print(i)
@@ -46,6 +46,22 @@ for i in range(1,87):
 #print(soup.find_all("span", { "itemprop"  : "name"}))
 #for post in page_soup.find_all("span", { "itemprop"  : "name"}):
  #   print("test")
+filename = "customerDataDMCC.csv"
+# opening file
+f = open(filename, "a", encoding='utf-8')
+
+# adding header
+#f.write("ID, Name, Email")  ## THERE IS NO ID , you can create easily in excel
+
+f.write("\n")
+for names,url in zip(CompanyNames,CompanyURL):
+    f.write(names)
+    f.write(",")
+    f.write(url)
+    f.write("\n")
+
+
+
 
 print(CompanyNames)
 
