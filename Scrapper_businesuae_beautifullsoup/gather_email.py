@@ -6,16 +6,20 @@ import lxml
 from time import sleep
 import time
 
+from sys import argv
 ## for reading csv files  makes life easier
 import csv
+
 
 f = open("customerDataDMCC.csv", "r", encoding='utf-8')
 csv_f = csv.reader(f)
 # skips first line  where is Name, Email
 next(csv_f)
 
-## skips first 30 rows because there is bot detector so every 30 info we will check marking manually
-for i in range(0):
+## skips first 40 rows because there is bot detector so every 30 info we will check marking manually
+go=990
+
+for i in range(go+40):
     next(csv_f)
 Names=[]
 EMAIL=[]
@@ -38,9 +42,10 @@ for row in csv_f:
         Names.append(row[0])
         EMAIL.append(email)
     #time.sleep(15)
-    if counter==40:
+    if counter==41:
         break
     counter += 1
+
 f.close()
 
 
@@ -56,7 +61,7 @@ f.close()
 filename = "Email.csv"
 # opening file
 count=0
-f = open(filename, "w", encoding='utf-8')
+f = open(filename, "a", encoding='utf-8')
 
 for mail,name in zip(EMAIL,Names):
     f.write(str(count))
