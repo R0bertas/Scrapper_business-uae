@@ -10,8 +10,8 @@ CompanyNames = []
 CompanyURL = []
 # this is first page
 # http://business-uae.com/eng/biz/jewellers-4800?p=1
-for i in range(60,87     ):
-    time.sleep(15)
+for i in range(1,87     ):
+    time.sleep(20)
     root = 'http://business-uae.com/eng/biz/jewellers-4800?p=' +str(i)
     print(i)
 
